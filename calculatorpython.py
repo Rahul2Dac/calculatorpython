@@ -2,7 +2,8 @@ from tkinter import *
 
 window = Tk()
 window.title("CALCULATOR")
-display = Entry(window, width=35,borderwidth=5)
+#window.geometry("250 x 150")
+display = Entry(window, width=35,borderwidth=5,bg="light blue")
 display.grid(row=0,column=0, columnspan=4, padx=5, pady=20)
 
 
@@ -35,6 +36,13 @@ def button_subtract():
     f_num = int(first_number)
     display.delete(0, END)
 
+def button_dot():
+   mylabel = label(display,text=".")
+   mylabel.pack()
+
+
+
+    
 def button_equal():
     second_number = display.get()
     display.delete(0, END)
@@ -69,15 +77,15 @@ button_9 = Button(window, padx=5, pady=0, bd=4, bg='white', command=lambda: butt
 button_0 = Button(window, padx=5, pady=0, bd=4, bg='white', command=lambda: button_click(0), text="0",
                   font=("Courier New", 16, 'bold'))
 
-button_division1= Button(window, padx=5, pady=0, bd=4, bg='white', command=lambda: button_division(), text="/",
+button_division1= Button(window, padx=5, pady=0, bd=4, bg='green', command=lambda: button_division(), text="/",
                     font=("Courier New", 16, 'bold'))
-button_multiplication = Button(window, padx=5, pady=0, bd=4, bg='white', command=lambda: button_multiply(), text="x",
+button_multiplication = Button(window, padx=5, pady=0, bd=4, bg='green', command=lambda: button_multiply(), text="x",
                     font=("Courier New", 16, 'bold'))
-button_subtract1 = Button(window, padx=5, pady=0, bd=4, bg='white', command=lambda: button_subtract(), text="-",
+button_subtract1 = Button(window, padx=5, pady=0, bd=4, bg='green', command=lambda: button_subtract(), text="-",
                     font=("Courier New", 16, 'bold'))
-button_poi = Button(window, padx=35, pady=0, bd=4, bg='white', command=lambda: button_click(), text=".",
+button_eql = Button(window, padx=35, pady=0, bd=4, bg='ivory4', command=lambda : button_equal(), text="=",
                     font=("Courier New", 16, 'bold'))
-# button_eql=Button(window,padx=35,pady=0,bd=4,bg='white',command=button_add(),text="=",font=("Courier New",16,'bold'))
+#button_eql=Button(window,padx=35,pady=0,bd=4,bg='white',command=button_(),text="=",font=("Courier New",16,'bold'))
 
 
 button_1.grid(row=3, column=0)
@@ -94,27 +102,27 @@ button_0.grid(row=4, column=0)
 button_division1.grid(row=1,column=3)
 button_multiplication.grid(row=2, column=3)
 button_subtract1.grid(row=3, column=3)
-button_poi.grid(row=4, column=1, columnspan=2)
+button_eql.grid(row=4, column=1, columnspan=2)
 
 
 # buttonql.grid(row=4, column=1,columnspan=2)
 
-button_addition = Button(window, padx=5, pady=0, bd=4, bg='white', command=lambda:button_add(), text="+",
+button_addition = Button(window, padx=5, pady=20, bd=4, bg='green', command=lambda:button_add(), text="+",
                     font=("Courier New", 16, 'bold'))
 
-button_addition.grid(row=4, column=3)
+button_addition.grid(row=4, column=3,rowspan=2)
 
 
 
 def button_clear():
     display.delete(0, END)
 
-button_clr = Button(window, padx=34.2, pady=0, bd=4, bg='white', command=lambda: button_clear(), text="C",
-                    font=("Courier New", 16, 'bold'))
-button_clr.grid(row=5, column=0, columnspan=2)
-button_eql = Button(window, padx=34.2, pady=0, bd=4, bg='white', command=lambda: button_equal(), text="=",
-                    font=("Courier New", 16, 'bold'))
-button_eql.grid(row=5, column=2, columnspan=2)
+button_clr = Button(window, padx=64, pady=0, bd=4, bg='dark orange', command=lambda: button_clear(), text="C",
+                    font=("Courier New", 16, 'bold',))
+button_clr.grid(row=5, column=0, columnspan=3)
+#button_eql = Button(window, padx=34.2, pady=0, bd=4, bg='grey', command=lambda: button_equal(), text="=",
+                   # font=("Courier New", 16, 'bold'))
+#button_eql.grid(row=5, column=2, columnspan=2)
 
 def button_add():
     first_number = display.get()
@@ -123,6 +131,7 @@ def button_add():
     math = "addition"
     f_num = int(first_number)
     display.delete(0, END)
+#def button_dot():
 
 
 
