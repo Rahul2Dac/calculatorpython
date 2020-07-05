@@ -6,9 +6,6 @@ window.title("CALCULATOR")
 display = Entry(window, width=35,borderwidth=5,bg="light blue")
 display.grid(row=0,column=0, columnspan=4, padx=5, pady=20)
 
-
-# display.insert(0,"enter the number")#display
-
 def button_click(number):
     current = display.get()
     display.delete(0, END)
@@ -36,13 +33,14 @@ def button_subtract():
     f_num = int(first_number)
     display.delete(0, END)
 
-def button_dot():
-   mylabel = label(display,text=".")
-   mylabel.pack()
+def button_add():
+    first_number = display.get()
+    global f_num
+    global math
+    math = "addition"
+    f_num = int(first_number)
+    display.delete(0, END)
 
-
-
-    
 def button_equal():
     second_number = display.get()
     display.delete(0, END)
@@ -54,6 +52,9 @@ def button_equal():
         display.insert(0, f_num - int(second_number))
     if math == "division":
         display.insert(0, f_num / int(second_number))
+
+def button_clear():
+    display.delete(0, END)
 
 
 button_1 = Button(window, padx=5, pady=0, bd=4, bg='white', command=lambda: button_click(1), text="1",
@@ -85,7 +86,11 @@ button_subtract1 = Button(window, padx=5, pady=0, bd=4, bg='green', command=lamb
                     font=("Courier New", 16, 'bold'))
 button_eql = Button(window, padx=35, pady=0, bd=4, bg='ivory4', command=lambda : button_equal(), text="=",
                     font=("Courier New", 16, 'bold'))
-#button_eql=Button(window,padx=35,pady=0,bd=4,bg='white',command=button_(),text="=",font=("Courier New",16,'bold'))
+
+button_addition = Button(window, padx=5, pady=20, bd=4, bg='green', command=lambda:button_add(), text="+",
+                    font=("Courier New", 16, 'bold'))
+button_clr = Button(window, padx=64, pady=0, bd=4, bg='dark orange', command=lambda: button_clear(), text="C",
+                    font=("Courier New", 16, 'bold',))
 
 
 button_1.grid(row=3, column=0)
@@ -98,40 +103,15 @@ button_7.grid(row=1, column=0)
 button_8.grid(row=1, column=1)
 button_9.grid(row=1, column=2)
 button_0.grid(row=4, column=0)
-
+#position
 button_division1.grid(row=1,column=3)
 button_multiplication.grid(row=2, column=3)
 button_subtract1.grid(row=3, column=3)
 button_eql.grid(row=4, column=1, columnspan=2)
-
-
-# buttonql.grid(row=4, column=1,columnspan=2)
-
-button_addition = Button(window, padx=5, pady=20, bd=4, bg='green', command=lambda:button_add(), text="+",
-                    font=("Courier New", 16, 'bold'))
-
 button_addition.grid(row=4, column=3,rowspan=2)
-
-
-
-def button_clear():
-    display.delete(0, END)
-
-button_clr = Button(window, padx=64, pady=0, bd=4, bg='dark orange', command=lambda: button_clear(), text="C",
-                    font=("Courier New", 16, 'bold',))
 button_clr.grid(row=5, column=0, columnspan=3)
-#button_eql = Button(window, padx=34.2, pady=0, bd=4, bg='grey', command=lambda: button_equal(), text="=",
-                   # font=("Courier New", 16, 'bold'))
-#button_eql.grid(row=5, column=2, columnspan=2)
 
-def button_add():
-    first_number = display.get()
-    global f_num
-    global math
-    math = "addition"
-    f_num = int(first_number)
-    display.delete(0, END)
-#def button_dot():
+
 
 
 
